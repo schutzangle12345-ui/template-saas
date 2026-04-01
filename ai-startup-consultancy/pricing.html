@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing | template saas - AI Startup Consultancy</title>
+    <meta name="description" content="Transparent pricing for AI startup consultancy. Hire expert AI advisors for GTM strategy, pricing, and technical scale.">
+    <link rel="icon" href="favicon-template-saas.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-primary: #8BC34A;
+            --color-primary-dark: #76A63E;
+            --color-accent: #E91E63;
+            --color-info: #03A9F4;
+            --color-background: #000000;
+            --color-surface: #121212;
+            --color-surface-hover: #1A1A1A;
+            --color-text: #FFFFFF;
+            --color-text-muted: #A0A0A0;
+            --color-border: #2A2A2A;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            --container-max: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--color-background);
+            color: var(--color-text);
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+
+        /* Typography */
+        h1, h2, h3 {
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -0.04em;
+        }
+
+        h1 { font-size: clamp(3rem, 8vw, 5rem); }
+        h2 { font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 2rem; }
+        h3 { font-size: 1.75rem; }
+
+        p { color: var(--color-text-muted); font-size: 1.125rem; }
+
+        a { text-decoration: none; color: inherit; transition: 0.2s ease; }
+
+        /* Navigation */
+        nav {
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+        }
+
+        .nav-link:hover { color: var(--color-primary); }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 2rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: transform 0.2s ease, background 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .btn:active { transform: scale(0.96); }
+
+        .btn-primary {
+            background-color: var(--color-primary);
+            color: var(--color-background);
+        }
+
+        .btn-primary:hover { background-color: var(--color-primary-dark); }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--color-border);
+            color: var(--color-text);
+        }
+
+        .btn-outline:hover { border-color: var(--color-primary); }
+
+        /* Layout Sections */
+        .section { padding: 8rem 5%; }
+        .container { max-width: var(--container-max); margin: 0 auto; }
+
+        /* Hero Pricing */
+        .hero {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 4rem;
+            align-items: center;
+            padding-top: 6rem;
+        }
+
+        @media (max-width: 992px) {
+            .hero { grid-template-columns: 1fr; text-align: center; }
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            color: var(--color-primary);
+            border-radius: 9999px;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+        }
+
+        /* Pricing Card */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            margin-top: 4rem;
+        }
+
+        .pricing-card {
+            background: var(--color-surface);
+            border-radius: 40px;
+            padding: 4rem;
+            border: 1px solid var(--color-border);
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .price-tag {
+            font-size: 5rem;
+            font-weight: 800;
+            margin: 2rem 0;
+            color: var(--color-primary);
+        }
+
+        .feature-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            text-align: left;
+            margin: 3rem 0;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: var(--color-text);
+        }
+
+        .feature-item svg {
+            flex-shrink: 0;
+            color: var(--color-primary);
+        }
+
+        /* Comparison Table */
+        .table-container {
+            overflow-x: auto;
+            margin-top: 4rem;
+            background: var(--color-surface);
+            border-radius: 32px;
+            padding: 2rem;
+            border: 1px solid var(--color-border);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 800px;
+        }
+
+        th {
+            text-align: left;
+            padding: 1.5rem;
+            font-size: 1.25rem;
+            border-bottom: 2px solid var(--color-border);
+        }
+
+        td {
+            padding: 1.25rem;
+            border-bottom: 1px solid var(--color-border);
+            color: var(--color-text-muted);
+        }
+
+        .check-col { color: var(--color-primary); font-weight: bold; }
+        .accent-row { background: rgba(233, 30, 99, 0.05); }
+
+        /* Form Section */
+        .contact-section {
+            background: var(--color-surface);
+            border-radius: 48px;
+            padding: 4rem;
+            margin: 4rem 5%;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            .contact-grid { grid-template-columns: 1fr; }
+            .contact-section { padding: 2rem; border-radius: 24px; }
+        }
+
+        .form-group { margin-bottom: 1.5rem; }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            background: var(--color-background);
+            border: 1px solid var(--color-border);
+            border-radius: 16px;
+            color: var(--color-text);
+            font-family: inherit;
+            transition: border-color 0.2s ease;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--color-primary);
+        }
+
+        /* Footer */
+        footer {
+            padding: 4rem 5%;
+            border-top: 1px solid var(--color-border);
+            background: var(--color-background);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+        }
+
+        .footer-logo { margin-bottom: 1.5rem; }
+        .footer-title { font-weight: 800; margin-bottom: 1.5rem; font-size: 1rem; }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 0.75rem; }
+        .footer-links a { color: var(--color-text-muted); font-size: 0.95rem; }
+        .footer-links a:hover { color: var(--color-primary); }
+
+        .social-links { display: flex; gap: 1rem; margin-top: 1rem; }
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--color-surface);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--color-border);
+        }
+
+        .bottom-bar {
+            padding-top: 2rem;
+            border-top: 1px solid var(--color-border);
+            color: var(--color-text-muted);
+            font-size: 0.875rem;
+            text-align: center;
+        }
+
+        .highlight-accent { color: var(--color-accent); }
+        .highlight-info { color: var(--color-info); }
+
+    </style>
+  <base href="/ai-startup-consultancy/" />
+</head>
+<body>
+
+    <nav>
+        <a href="index.html">
+            <img src="logo-template-saas.png" alt="template saas logo" style="height:40px;object-fit:contain">
+        </a>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="pricing.html" class="nav-link" style="color:var(--color-primary)">Pricing</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+            <a href="auth.html" class="btn btn-primary" data-track="cta_click">Sign In</a>
+        </div>
+    </nav>
+
+    <header class="section container">
+        <div class="hero">
+            <div>
+                <span class="badge">Engagement Models</span>
+                <h1>Stop Chasing <span class="highlight-accent">Demos</span>. Start Scaling <span class="highlight-info">Profit</span>.</h1>
+                <p style="margin-top: 2rem;">Generic startup playbooks don't work for AI. We offer a hands-on technical and GTM partnership designed for founders building the next generation of intelligent software.</p>
+            </div>
+            <div style="background: var(--color-surface); border-radius: 32px; padding: 2rem; border: 1px solid var(--color-border); border-left: 8px solid var(--color-primary);">
+                <h3 style="margin-bottom: 1rem;">Why hire an advisor?</h3>
+                <p style="font-size: 1rem;">Founders receive advice but little help on pricing, packaging, and delivery. We bridge the gap between technical nuance and commercial repeatability.</p>
+            </div>
+        </div>
+    </header>
+
+    <section class="section container">
+        <div class="pricing-card">
+            <h2 style="margin-bottom: 0.5rem;">Custom Engagement</h2>
+            <p>Tailored advisory for AI Founders & Venture Studios</p>
+            <div class="price-tag">$0<span style="font-size: 1.5rem; color: var(--color-text-muted);">/mo starting</span></div>
+            <p style="margin-bottom: 2rem; color: var(--color-text);">We don't believe in "one size fits all" for AI companies. Our pricing is project-based or fractional depending on your stage.</p>
+            
+            <ul class="feature-list">
+                <li class="feature-item">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    AI ICP & Positioning Framework
+                </li>
+                <li class="feature-item">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    2025 Pricing & Usage Models
+                </li>
+                <li class="feature-item">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    LLM Stack & Infra Strategy
+                </li>
+                <li class="feature-item">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    Repeatable Sales Playbooks
+                </li>
+                <li class="feature-item">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    Investor Pitch Readiness
+                </li>
+                <li class="feature-item">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    Data Privacy & Security Early-Audit
+                </li>
+            </ul>
+
+            <a href="#contact" class="btn btn-primary" style="width: 100%; font-size: 1.25rem;" data-track="cta_click">Request a Consultation</a>
+        </div>
+    </section>
+
+    <section class="section container">
+        <h2 style="text-align: center;">Consultancy by Stage</h2>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Capability</th>
+                        <th>Idea Stage</th>
+                        <th>Pre-Seed/Seed</th>
+                        <th>Post-PMF Scale</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>ICP Definition</strong></td>
+                        <td class="check-col">Narrow wedge ID</td>
+                        <td>Multi-segment test</td>
+                        <td>Vertical expansion</td>
+                    </tr>
+                    <tr class="accent-row">
+                        <td><strong>GTM Playbook</strong></td>
+                        <td>Founder-led sales</td>
+                        <td class="check-col">Repeatable motions</td>
+                        <td>PLG + Enterprise</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Pricing Strategy</strong></td>
+                        <td>Founding offers</td>
+                        <td>Usage-based design</td>
+                        <td class="check-col">Margin optimization</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tech Strategy</strong></td>
+                        <td>Build vs Buy MVP</td>
+                        <td class="check-col">Fine-tuning/RAG</td>
+                        <td>Infra unit economics</td>
+                    </tr>
+                    <tr class="accent-row">
+                        <td><strong>Investor Readiness</strong></td>
+                        <td>Narrative design</td>
+                        <td>Metrics foundation</td>
+                        <td class="check-col">Growth modeling</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section container">
+        <div class="contact-grid">
+            <div>
+                <h2>Ready to <span style="color:var(--color-primary)">Scale</span>?</h2>
+                <p style="margin-bottom: 2rem;">Tell us about your AI product. Whether you are a solo founder or a venture studio, we build the playbooks you need to move from "cool demo" to "repeatable revenue."</p>
+                <div style="margin-top: 3rem;">
+                    <h3 style="margin-bottom: 1rem;">What happens next?</h3>
+                    <ul style="list-style: none;">
+                        <li style="margin-bottom: 1rem;"><strong>1. Discovery:</strong> 30min call to audit your current GTM and tech stack.</li>
+                        <li style="margin-bottom: 1rem;"><strong>2. Proposal:</strong> A custom scope based on your specific growth bottlenecks.</li>
+                        <li style="margin-bottom: 1rem;"><strong>3. Execution:</strong> Weekly sprints focused on pricing, delivery, or technical scaling.</li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <form data-backend="form" style="background: var(--color-background); padding: 2.5rem; border-radius: 24px; border: 1px solid var(--color-border);">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" name="name" placeholder="Alex Rivera" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Work Email</label>
+                        <input type="email" name="email" placeholder="alex@startup.ai" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Company/Project Stage</label>
+                        <select name="stage">
+                            <option value="idea">Idea Stage</option>
+                            <option value="pre-seed">Pre-Seed / Seed</option>
+                            <option value="series-a">Series A+</option>
+                            <option value="venture-studio">Venture Studio</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>What's your biggest bottleneck?</label>
+                        <textarea name="message" rows="4" placeholder="Pricing strategy, technical infra, finding ICP..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;" data-track="cta_click">Book Strategy Session</button>
+                    <p data-success style="display:none; color: var(--color-primary); font-weight: bold; margin-top: 1rem; text-align: center;">Success! Our lead consultant will be in touch within 24 hours.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-grid">
+            <div>
+                <div class="footer-logo">
+                    <img src="logo-template-saas.png" alt="template saas logo" style="height:32px;object-fit:contain">
+                </div>
+                <p style="font-size: 0.9rem;">The specialized AI startup consultancy for founders who want to build real businesses, not just pretty demos. We scale AI products fast.</p>
+                <div class="social-links">
+                    <a href="#" class="social-icon">
+                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path></svg>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path><circle cx="4" cy="4" r="2"></circle></svg>
+                    </a>
+                </div>
+            </div>
+            <div>
+                <h4 class="footer-title">Product</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Solutions</a></li>
+                    <li><a href="pricing.html">Pricing</a></li>
+                    <li><a href="about.html">Case Studies</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="footer-title">Company</h4>
+                <ul class="footer-links">
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="footer-title">Resources</h4>
+                <ul class="footer-links">
+                    <li><a href="#">AI GTM Playbook</a></li>
+                    <li><a href="#">Pricing Calculator</a></li>
+                    <li><a href="#">Founder FAQ</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="bottom-bar container">
+            <p>© 2026 template saas. All rights reserved. Built for AI Founders.</p>
+        </div>
+    </footer>
+
+    <script>
+    (function() {
+      var BACKEND = 'http://localhost:3000/api';
+      var TOKEN = 'f3359cc7f325020e42e5de7a214b267ed25b81d8ca24dad82fef225f4f783fb7';
+      var DOMAIN = 'aistartupconsultancy.com';
+      var HEADERS = { 'Content-Type': 'application/json', 'X-Token': TOKEN, 'X-Domain': DOMAIN };
+
+      // 1. Auto-track pageview
+      fetch(BACKEND + '/track', {
+        method: 'POST',
+        headers: HEADERS,
+        body: JSON.stringify({ event: 'pageview', path: window.location.pathname })
+      }).catch(function(){});
+
+      // 2. Track CTA clicks
+      document.addEventListener('click', function(e) {
+        var el = e.target.closest('[data-track]');
+        if (el) {
+          fetch(BACKEND + '/track', {
+            method: 'POST',
+            headers: HEADERS,
+            body: JSON.stringify({ event: el.getAttribute('data-track'), path: window.location.pathname })
+          }).catch(function(){});
+        }
+      });
+
+      var FORM_ID = '236';
+
+      // 3. Handle forms (Contact, Signup, Waitlist)
+      document.addEventListener('submit', function(e) {
+        var form = e.target.closest('form[data-backend]');
+        if (!form) return;
+        e.preventDefault();
+        var type = form.getAttribute('data-backend');
+        var endpoint = type === 'signup' ? '/users' : '/forms/submit';
+        
+        // Extract dynamic form fields
+        var data = {};
+        new FormData(form).forEach(function(v, k) { data[k] = v; });
+        
+        // Add Form ID if it's a general form and we have it
+        if (type === 'form' && FORM_ID) {
+          data.formId = FORM_ID;
+        }
+
+        var btn = form.querySelector('button[type="submit"]');
+        var originalText = '';
+        if (btn) {
+          originalText = btn.innerText;
+          btn.innerText = 'Sending...';
+          btn.disabled = true;
+        }
+
+        // Track Form Submission Event
+        fetch(BACKEND + '/track', {
+          method: 'POST',
+          headers: HEADERS,
+          body: JSON.stringify({ 
+            event: 'form_submission', 
+            path: window.location.pathname,
+            metadata: { formType: type } 
+          })
+        }).catch(function(){});
+
+        // Submit Form Data
+        fetch(BACKEND + endpoint, {
+          method: 'POST',
+          headers: HEADERS,
+          body: JSON.stringify(data)
+        }).then(function(r) { return r.json(); }).then(function(res) {
+          if (res.success) {
+            var msg = form.querySelector('[data-success]');
+            if (msg) { msg.style.display = 'block'; }
+            form.reset();
+            if (btn) btn.style.display = 'none';
+          } else {
+            alert(res.error || 'Failed to submit form');
+            if (btn) { btn.innerText = originalText; btn.disabled = false; }
+          }
+        }).catch(function(){
+          alert('Network error occurred');
+          if (btn) { btn.innerText = originalText; btn.disabled = false; }
+        });
+      });
+    })();
+    </script>
+</body>
+</html>
